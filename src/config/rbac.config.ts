@@ -12,6 +12,7 @@ type RbacConfig = Record<RoleId, Record<string, ModuleAccess>>
 export const RBAC_CONFIG: RbacConfig = {
   callCentreAgent: {
     dashboard: { actions: ['read'], subModules: ['d1', 'd2'] },
+    emailDashboard: { actions: ['read'], subModules: ['ed1', 'ed2', 'ed3'] },
     customer360: { actions: ['read'] },
     retailer360: { actions: [] },
     orderTracker: { actions: ['read'] },
@@ -21,6 +22,7 @@ export const RBAC_CONFIG: RbacConfig = {
   },
   callCentreLead: {
     dashboard: { actions: ['read'], subModules: ['d1', 'd2', 'd3', 'd4', 'd7'] },
+    emailDashboard: { actions: ['read'], subModules: ['ed1', 'ed2', 'ed3', 'ed4', 'ed5', 'ed8'] },
     customer360: { actions: ['read'] },
     retailer360: { actions: ['read'] },
     orderTracker: { actions: ['read'] },
@@ -30,6 +32,7 @@ export const RBAC_CONFIG: RbacConfig = {
   },
   nhqCustomerCare: {
     dashboard: { actions: ['read'], subModules: ['d1', 'd2', 'd3', 'd4', 'd5', 'd7', 'd8', 'd9'] },
+    emailDashboard: { actions: ['read'], subModules: ['ed1', 'ed2', 'ed3', 'ed4', 'ed5', 'ed6', 'ed7', 'ed8'] },
     customer360: { actions: ['read'] },
     retailer360: { actions: ['read'] },
     orderTracker: { actions: ['read'] },
@@ -39,6 +42,7 @@ export const RBAC_CONFIG: RbacConfig = {
   },
   nhqScm: {
     dashboard: { actions: ['read'], subModules: ['d1', 'd3', 'd8', 'd9'] },
+    emailDashboard: { actions: ['read'], subModules: ['ed1', 'ed6', 'ed7'] },
     customer360: { actions: ['read'] },
     retailer360: { actions: ['read'] },
     orderTracker: { actions: ['read'] },
@@ -48,6 +52,7 @@ export const RBAC_CONFIG: RbacConfig = {
   },
   nhqFinance: {
     dashboard: { actions: ['read'], subModules: ['d1', 'd3', 'd9'] },
+    emailDashboard: { actions: ['read'], subModules: ['ed1', 'ed7'] },
     customer360: { actions: ['read'] },
     retailer360: { actions: ['read'] },
     orderTracker: { actions: ['read'] },
@@ -57,6 +62,7 @@ export const RBAC_CONFIG: RbacConfig = {
   },
   ccHead: {
     dashboard: { actions: ['read', 'export'], subModules: ['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'daily'] },
+    emailDashboard: { actions: ['read', 'export'], subModules: ['ed1', 'ed2', 'ed3', 'ed4', 'ed5', 'ed6', 'ed7', 'ed8'] },
     customer360: { actions: ['read', 'export'] },
     retailer360: { actions: ['read', 'export'] },
     orderTracker: { actions: ['read', 'export'] },
@@ -66,6 +72,7 @@ export const RBAC_CONFIG: RbacConfig = {
   },
   scmHead: {
     dashboard: { actions: ['read', 'export'], subModules: ['d1', 'd3', 'd5', 'd8', 'd9', 'd10'] },
+    emailDashboard: { actions: ['read'], subModules: ['ed1', 'ed6', 'ed7'] },
     customer360: { actions: ['read'] },
     retailer360: { actions: ['read', 'export'] },
     orderTracker: { actions: ['read', 'export'] },
@@ -75,6 +82,7 @@ export const RBAC_CONFIG: RbacConfig = {
   },
   csProductManager: {
     dashboard: { actions: ['read', 'export'], subModules: ['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'daily'] },
+    emailDashboard: { actions: ['read', 'export'], subModules: ['ed1', 'ed2', 'ed3', 'ed4', 'ed5', 'ed6', 'ed7', 'ed8'] },
     customer360: { actions: ['read', 'export'] },
     retailer360: { actions: ['read', 'export'] },
     orderTracker: { actions: ['read', 'export'] },
@@ -84,6 +92,7 @@ export const RBAC_CONFIG: RbacConfig = {
   },
   financeHead: {
     dashboard: { actions: ['read', 'export'], subModules: ['d1', 'd3', 'd9', 'd10'] },
+    emailDashboard: { actions: ['read'], subModules: ['ed1', 'ed7'] },
     customer360: { actions: ['read', 'export'] },
     retailer360: { actions: ['read', 'export'] },
     orderTracker: { actions: ['read', 'export'] },
@@ -93,6 +102,7 @@ export const RBAC_CONFIG: RbacConfig = {
   },
   businessHead: {
     dashboard: { actions: ['read', 'export'], subModules: ['d1', 'd3', 'd4', 'd9', 'd10', 'daily'] },
+    emailDashboard: { actions: ['read', 'export'], subModules: ['ed1', 'ed4', 'ed5', 'ed6', 'ed7'] },
     customer360: { actions: ['read'] },
     retailer360: { actions: ['read'] },
     orderTracker: { actions: ['read'] },
@@ -102,6 +112,7 @@ export const RBAC_CONFIG: RbacConfig = {
   },
   admin: {
     dashboard: { actions: ['read', 'create', 'update', 'delete', 'export'], subModules: ['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'daily'] },
+    emailDashboard: { actions: ['read', 'create', 'update', 'delete', 'export'], subModules: ['ed1', 'ed2', 'ed3', 'ed4', 'ed5', 'ed6', 'ed7', 'ed8'] },
     customer360: { actions: ['read', 'create', 'update', 'delete', 'export'] },
     retailer360: { actions: ['read', 'create', 'update', 'delete', 'export'] },
     orderTracker: { actions: ['read', 'create', 'update', 'delete', 'export'] },

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import clsx from 'clsx'
 import {
-  LayoutDashboard, Users, Store, Package, Ticket, MapPin, Settings, ChevronDown, ChevronRight,
+  LayoutDashboard, Users, Store, Package, Ticket, MapPin, Settings, ChevronDown, ChevronRight, Mail,
 } from 'lucide-react'
 import { useRbac } from '../../context/RbacContext'
 import { useAuth } from '../../context/AuthContext'
@@ -16,6 +16,7 @@ const ICON_MAP: Record<string, React.ReactNode> = {
   Ticket: <Ticket className="w-4 h-4" />,
   MapPin: <MapPin className="w-4 h-4" />,
   Settings: <Settings className="w-4 h-4" />,
+  Mail: <Mail className="w-4 h-4" />,
 }
 
 const ROLE_LABELS: Record<string, string> = {
@@ -37,12 +38,16 @@ export function Sidebar() {
   const { user } = useAuth()
   const location = useLocation()
   const [dashboardOpen, setDashboardOpen] = useState(true)
+  const [emailDashOpen, setEmailDashOpen] = useState(false)
 
   const accessibleModules = getAccessibleModules()
   const dashboardSubModules = getDashboardSubModules()
 
   const dashboardModule = MODULES_CONFIG.find((m) => m.id === 'dashboard')
   const accessibleSubModules = dashboardModule?.subModules.filter((s) => dashboardSubModules.includes(s.id)) ?? []
+
+  const emailDashModule = MODULES_CONFIG.find((m) => m.id === 'emailDashboard')
+  const emailSubModules = emailDashModule?.subModules ?? []
 
   return (
     <aside className="fixed left-0 top-0 h-full w-60 bg-brand-900 flex flex-col z-30">
@@ -84,6 +89,46 @@ export function Sidebar() {
                 {dashboardOpen && (
                   <div className="ml-4 mt-1 space-y-0.5">
                     {accessibleSubModules.map((sub) => (
+                      <NavLink
+                        key={sub.id}
+                        to={sub.path}
+                        className={({ isActive }) =>
+                          clsx(
+                            'block px-3 py-1.5 text-xs rounded-md transition-colors',
+                            isActive ? 'bg-amber-500 text-white font-medium' : 'text-brand-300 hover:bg-brand-800 hover:text-white'
+                          )
+                        }
+                      >
+                        {sub.label}
+                      </NavLink>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )
+          }
+
+          if (module.id === 'emailDashboard') {
+            return (
+              <div key="emailDashboard" className="mb-1">
+                <button
+                  onClick={() => setEmailDashOpen((p) => !p)}
+                  className={clsx(
+                    'w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors',
+                    location.pathname.startsWith('/email-dashboard')
+                      ? 'bg-brand-700 text-white'
+                      : 'text-brand-200 hover:bg-brand-800 hover:text-white'
+                  )}
+                >
+                  <span className="flex items-center gap-2.5">
+                    {ICON_MAP[module.icon]}
+                    {module.label}
+                  </span>
+                  {emailDashOpen ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
+                </button>
+                {emailDashOpen && (
+                  <div className="ml-4 mt-1 space-y-0.5">
+                    {emailSubModules.map((sub) => (
                       <NavLink
                         key={sub.id}
                         to={sub.path}

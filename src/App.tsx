@@ -13,6 +13,7 @@ import { OrderTrackerPage } from './pages/OrderTracker/OrderTrackerPage'
 import { TicketListPage } from './pages/TicketManagement/TicketListPage'
 import { TicketDetailPage } from './pages/TicketManagement/TicketDetailPage'
 import { StoreLocatorPage } from './pages/StoreLocator/StoreLocatorPage'
+import { EmailDashboardPage } from './pages/EmailDashboard/EmailDashboardPage'
 import { AdminPage } from './pages/Admin/AdminPage'
 
 function AccessDenied() {
@@ -106,6 +107,18 @@ export default function App() {
                   <AuthGuard>
                     <PermissionGuard moduleId="ticketManagement" fallback={<AccessDenied />}>
                       <TicketDetailPage />
+                    </PermissionGuard>
+                  </AuthGuard>
+                }
+              />
+
+              {/* Email Dashboard */}
+              <Route
+                path="/email-dashboard/*"
+                element={
+                  <AuthGuard>
+                    <PermissionGuard moduleId="emailDashboard" fallback={<AccessDenied />}>
+                      <EmailDashboardPage />
                     </PermissionGuard>
                   </AuthGuard>
                 }

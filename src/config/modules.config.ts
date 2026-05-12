@@ -54,6 +54,23 @@ export const MODULES_CONFIG: ModuleConfig[] = [
     subModules: [],
   },
   {
+    id: 'emailDashboard',
+    label: 'Email Dashboard',
+    icon: 'Mail',
+    path: '/email-dashboard',
+    order: 6,
+    subModules: [
+      { id: 'ed1', label: 'Overview',          path: '/email-dashboard/overview' },
+      { id: 'ed2', label: 'Live Queue',         path: '/email-dashboard/live-queue' },
+      { id: 'ed3', label: 'Live Agents',        path: '/email-dashboard/live-agents' },
+      { id: 'ed4', label: 'Queue Performance',  path: '/email-dashboard/queue-perf' },
+      { id: 'ed5', label: 'Agent Performance',  path: '/email-dashboard/agent-perf' },
+      { id: 'ed6', label: 'Volume & Category',  path: '/email-dashboard/volume-category' },
+      { id: 'ed7', label: 'Email Flow',         path: '/email-dashboard/email-flow' },
+      { id: 'ed8', label: 'Break Report',       path: '/email-dashboard/break-report' },
+    ],
+  },
+  {
     id: 'storeLocator',
     label: 'Store Locator',
     icon: 'MapPin',
