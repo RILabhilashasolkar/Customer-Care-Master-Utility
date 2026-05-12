@@ -4,7 +4,9 @@ import { MOCK_AGENT_PERFORMANCE } from '../../data/kpiSnapshots.mock'
 const BUCKET_COLORS = ['#4caf50', '#8bc34a', '#ffeb3b', '#ff9800', '#f44336']
 const BUCKETS = ['0-4h', '4-8h', '8-24h', '24-48h', '48h+']
 
-function generateAgentAgingData() {
+type AgentAgingRow = { agent_name: string; [key: string]: string | number }
+
+function generateAgentAgingData(): AgentAgingRow[] {
   // Use seeded-like values (not random) so no re-renders flicker
   const seeds = [8,3,2,1,0, 6,4,1,0,0, 7,2,3,0,0, 5,3,1,1,0, 9,2,0,0,0, 4,5,2,1,0, 6,1,2,0,0, 7,3,0,1,0, 3,2,1,0,0, 5,4,2,0,0]
   return MOCK_AGENT_PERFORMANCE.slice(0, 10).map((a, ai) => ({
