@@ -28,7 +28,7 @@ function AccessDenied() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Customer-Care-Master-Utility">
       <AuthProvider>
         <RbacProvider>
           <DashboardFilterProvider>
